@@ -54,7 +54,7 @@ def login(request):
 
         if id is not None: #its None not none
             auth.login(request,id) #for logging in process
-            return redirect('/')
+            return redirect('dashboard')
         else:
             messages.info(request,'invalid credentials')
             return redirect('login')
@@ -64,7 +64,7 @@ def login(request):
     
 def logout(request):
     auth.logout(request)
-    return redirect('/')
+    return render(request,'login.html')
 
 
 
