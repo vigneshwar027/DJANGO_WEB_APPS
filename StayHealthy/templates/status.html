@@ -1,0 +1,27 @@
+{% extends 'base.html'%}
+{% block content %}
+
+    <center><h1>Hello Sir/Mam, Welcome to StayHealthy</h1></center> 
+    <a href="{% url 'logout' %}"><button>Logout</button></a>
+
+
+    {% for i in treatment %}
+    <hr>
+    <div>
+       Patient Name: {{i.patient}} <br>
+       severity:{{i.severity}} <br>      
+       disease:  {{i.disease}} <br>
+       disease:  {{i.completion}} <br>
+       checkup_date   {{i.checkup_date}} <br>
+       next_checkup_date {{i.next_checkup_date}} <br>   
+       dosage_per_day   {{i.dosage_per_day}} <br>
+       dosage_per_day   {{i.dosage_per_day}} <br>      
+       {% if i.completion %}
+            <h3>The patient is Completely cured for this treatment</h3>
+       {% else %}
+        <h3>The patient is not Completely cured and is still in treatment</h3>
+       {% endif %}
+    </div>
+    
+    {% endfor %}
+{% endblock  %}
