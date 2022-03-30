@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<main role="main" class="container">
+    <div class="jumbotron text-center">
+        <h1>Document Finder</h1>
+
+        <form class="form-inline mt-2 mt-md-0" action="{% url 'home' %}" method="post">
+            {% csrf_token %}
+            <input class="form-control mr-sm-2" type="text" placeholder="Type Search Keyword" aria-label="Search" name="keyword">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+
+
+        
+        {% if keyword %}
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th scope="col">Sl No</th>
+                    <th scope="col">File Name</th>
+                    <th scope="col">File Path</th>
+                </tr>
+                </thead>       
+                    <tbody>
+                        
+                {% for a,b,c  in file_and_path %}
+                    <tr>
+                        <th scope="row">{{a}}</th>
+                        <td>{{b}}</td>  
+                        <a href="fb.com">              
+                        <td><a target="_blank" href="file:///{{item3}}">{{c}}</a></td>
+                    </tr>                                
+                {% endfor %}
+                    </tbody>    
+            </table>
+
+        {% endif %}
+        <!-- <p class="lead text-info">NavBar with too many childs.</p>
+        <a href="http://fontenele.github.io/bootstrap-navbar-dropdowns/">Github</a> -->
+    </div>
+</main>
+
+
+
+{% endblock  %}

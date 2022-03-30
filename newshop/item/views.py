@@ -104,7 +104,7 @@ def cart(request):
         order = cookiedata['order']
         items = cookiedata['items']        
         
-    return render(request,'cart.html',{'items':items,'order':order,'cartitems':cartitems})
+    return render(request,'cart.html',{'items':items,'order':order})
 
 # def update_address(request):    
 #     if request.user.is_authenticated:
@@ -148,7 +148,7 @@ def checkout(request,updation=None):
         order = cookiedata['order']
         items = cookiedata['items']        
 
-    return render(request,'checkout.html',{'cartitems':cartitems,'items':items,'order':order,'add':add,'update_required':update_required})
+    return render(request,'checkout.html',{'items':items,'order':order,'add':add,'update_required':update_required})
 
     # for item in items:
     #     if item.product.digital == False:
@@ -156,9 +156,6 @@ def checkout(request,updation=None):
     #         break 
     
     # address = ShippingAddress.objects.get(customer=customer, order = order)
-
-
-    
 
     #     # cus1 = Customer.objects.get(id=2)
     #     # order = cus1.order_set.all()

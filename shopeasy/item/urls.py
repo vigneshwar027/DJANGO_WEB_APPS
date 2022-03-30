@@ -9,5 +9,6 @@ urlpatterns = [
     path('cart/<str:p_slug>/',views.cart),
     path('productss/search/',views.search,name='search'),
 
+]
 
         
